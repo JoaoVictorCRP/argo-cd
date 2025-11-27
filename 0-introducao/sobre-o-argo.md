@@ -11,3 +11,16 @@
 
 - **O Argo usa o próprio etcd como base de dados para armazenar o estado dos aplicativos e suas configurações**. 
   - Isso permite que o ArgoCD mantenha um registro consistente do estado desejado dos aplicativos e facilite a sincronização com o cluster Kubernetes.
+
+## Componentes do Argo
+- **Projects**: Permitem agrupar aplicativos relacionados e definir políticas de acesso e sincronização para esses grupos.
+
+- **Applications**: Representam os aplicativos individuais que são gerenciados pelo ArgoCD. Cada aplicação está associada a um repositório Git e a um cluster Kubernetes.
+
+- **Repositories**: São os repositórios Git que contêm as definições de configuração dos aplicativos.
+
+- **Sync Windows**: Permitem definir janelas de tempo específicas durante as quais as sincronizações automáticas podem ocorrer.
+
+## Exemplo de Aplicação com ArgoCD
+- Um exemplo de aplicação gerenciada pelo argo pode ser vista no arquivo `guestbook-sample-app.yaml`, que define uma aplicação chamada "guestbook" que utiliza Helm para gerenciar seus manifests. 
+  - A aplicação está configurada para sincronizar automaticamente com o repositório Git especificado, garantindo que o estado do aplicativo no cluster Kubernetes esteja sempre alinhado com o estado desejado definido no Git.

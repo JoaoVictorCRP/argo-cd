@@ -24,3 +24,14 @@
 ## Exemplo de Aplicação com ArgoCD
 - Um exemplo de aplicação gerenciada pelo argo pode ser vista no arquivo `guestbook-sample-app.yaml`, que define uma aplicação chamada "guestbook" que utiliza Helm para gerenciar seus manifests. 
   - A aplicação está configurada para sincronizar automaticamente com o repositório Git especificado, garantindo que o estado do aplicativo no cluster Kubernetes esteja sempre alinhado com o estado desejado definido no Git.
+
+## Tipos de Sync
+- **Automática**: O ArgoCD monitora continuamente o repositório Git e aplica automaticamente quaisquer alterações detectadas no cluster Kubernetes.
+- **Manual**: As alterações no repositório Git são aplicadas ao cluster Kubernetes somente quando um usuário inicia manualmente o processo de sincronização através da interface do ArgoCD ou da linha de comando.
+### Self Heal
+- O ArgoCD pode ser configurado para detectar desvios entre o estado desejado (definido no Git) e o estado real (no cluster Kubernetes) e corrigir automaticamente esses desvios, restaurando o estado desejado sem intervenção manual.
+  - Para habilitar o Self Heal, é necessário configurar a aplicação no ArgoCD com a opção de auto-sincronização e definir a política `selfHeal` na SyncPolicy.
+
+## Outros Detalhes
+
+- Na grande maioria dos casos, lidaremos com repositórios privados, o que exige a configuração de um PAT (Personal Access Token) ou chave SSH para que o Argo faça uma autenticação segura no repositório Git.

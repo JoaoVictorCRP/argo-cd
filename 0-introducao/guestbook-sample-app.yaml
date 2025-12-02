@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: helm-guestbook
-    repoURL: https://github.com/argoproj/argocd-example-apps
+    path: helm-guestbook # Caminho dentro do repositório Git onde os manifests estão localizadoss
+    repoURL: https://github.com/argoproj/argocd-example-apps # URL do repositório Git da aplicaçãos
     targetRevision: HEAD # Pode ser uma branch, tag ou commit hash
   syncPolicy:
     automated: # Sincronização automática (ArgoCD verificará mudanças e aplicará automaticamente)
